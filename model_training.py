@@ -60,7 +60,7 @@ def decision_tree_training(file):
 def random_forest(file):
     print("===================Random Forest model===================")
     file.write("===================Random Forest model===================\n")
-    rf = RandomForestClassifier(featuresCol = 'features', labelCol = features[-1] , numTrees=60, maxBins=32, maxDepth=4, seed=42)
+    rf = RandomForestClassifier(featuresCol = 'features', labelCol = features[-1] , numTrees=60, maxBins=32, maxDepth=5, seed=42)
     rf_model = rf.fit(df_training)
     predictions = rf_model.transform(df_training)
     print(f"Random forest trained model Location : {rf_trained_model_result} ..")
@@ -81,6 +81,7 @@ def main():
     with open(output_file, 'w') as file:
         decision_tree_training(file)
         random_forest(file)
+
 
 if __name__ == "__main__":
     main()
