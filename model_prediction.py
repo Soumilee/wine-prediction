@@ -25,7 +25,7 @@ dt_trained_model_result = sys.argv[2]+"dt-trained.model"
 rf_trained_model_result = sys.argv[2]+"rf-trained.model"
 rf_predicted_model_result = sys.argv[2]+"rf-predicted.model"
 dt_predicted_model_result = sys.argv[2]+"dt-predicted.model"
-output_file = sys.argv[2]+"prediction_file.txt"
+output_file = sys.argv[3]+"prediction_file.txt"
 train_dataset = sys.argv[1] 
 
 print(f"Loading data from {train_dataset}..")
@@ -46,7 +46,6 @@ df_validation = va.transform(df_validation)
 def random_forest_prediction(file):
     print("===================Random Forest Prediction model===================")
     file.write("===================Random Forest Prediction model===================\n")
-    # rf = RandomForestClassifier(featuresCol = 'features', labelCol = features[-1] , numTrees=60, maxBins=32, maxDepth=5, seed=42)
     rf_model = RandomForestClassificationModel.load(rf_trained_model_result)
     predictions = rf_model.transform(df_validation)
     print(f"Trained model Location: {rf_predicted_model_result} ..")
