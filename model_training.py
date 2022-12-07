@@ -22,7 +22,7 @@ sqlContext = SQLContext(sc)
 
 dt_trained_model_result = sys.argv[2]+"dt-trained.model"  
 rf_trained_model_result = sys.argv[2]+"rf-trained.model"
-output_file = sys.argv[2]+"fitness_file.txt"
+output_file = sys.argv[3]+"fitness_file.txt"
 train_dataset = sys.argv[1]
 
 print(f"Loading Training data from {train_dataset} ..")
